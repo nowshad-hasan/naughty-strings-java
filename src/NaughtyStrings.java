@@ -603,6 +603,7 @@ public class NaughtyStrings {
             "{{ \"\".__class__.__mro__[2].__subclasses__()[40](\"/etc/passwd\").read() }}"
     );
 
+    // todo add all the types of strings
     public static List<String> AllStrings = join(reservedStrings, specialCharacters);
 
     public static List<String> getRandomStrings(int size) {
