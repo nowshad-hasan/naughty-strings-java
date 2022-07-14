@@ -4,6 +4,7 @@
  */
 public class NaughtyStringMain {
     public static void main(String[] args) {
-        System.out.println(NaughtyStrings.AllStrings);
+//        System.out.println(NaughtyStrings.AllStrings);
+        System.out.println(NaughtyStrings.getRandomStrings(5));
     }
 }

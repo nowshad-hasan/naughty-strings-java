@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Nowshad Hasan
@@ -485,7 +486,7 @@ public class NaughtyStrings {
             "http://a/%%30%30",
             "</textarea><script>alert(123)</script>"
     );
-    public List<String> SQLInjection = Arrays.asList(
+    public static List<String> SQLInjection = Arrays.asList(
             "1;DROP TABLE users",
             "1'; DROP TABLE users-- 1",
             "' OR 1=1 -- 1",
@@ -495,7 +496,7 @@ public class NaughtyStrings {
             "%",
             "_"
     );
-    public List<String> ServerCodeInjection = Arrays.asList(
+    public static List<String> ServerCodeInjection = Arrays.asList(
             "-",
             "--",
             "--version",
@@ -506,7 +507,7 @@ public class NaughtyStrings {
             "$(touch /tmp/blns.fail)",
             "@{[system \"touch /tmp/blns.fail\"]}"
     );
-    public List<String> CommandInjection = Arrays.asList(
+    public static List<String> CommandInjection = Arrays.asList(
             "eval(\"puts 'hello world'\")",
             "System(\"ls -al /\")",
             "`ls -al /`",
@@ -514,10 +515,10 @@ public class NaughtyStrings {
             "Kernel.exit(1)",
             "%x('ls -al /')"
     );
-    public List<String> XXEInjection = Arrays.asList(
+    public static List<String> XXEInjection = Arrays.asList(
             "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><!DOCTYPE foo [ <!ELEMENT foo ANY ><!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]><foo>&xxe;</foo>"
     );
-    public List<String> UnwantedInterpolation = Arrays.asList(
+    public static List<String> UnwantedInterpolation = Arrays.asList(
             "$HOME",
             "$ENV{'HOME'}",
             "%d",
@@ -528,17 +529,17 @@ public class NaughtyStrings {
             "%n",
             "File:///"
     );
-    public List<String> FileInclusion = Arrays.asList(
+    public static List<String> FileInclusion = Arrays.asList(
             "../../../../../../../../../../../etc/passwd%00",
             "../../../../../../../../../../../etc/hosts"
     );
-    public List<String> CVEsAndVulnerabilities = Arrays.asList(
+    public static List<String> CVEsAndVulnerabilities = Arrays.asList(
             "() { 0; }; touch /tmp/blns.shellshock1.fail;",
             "() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }",
             "<<< %s(un='%s') = %u",
             "+++ATH0"
     );
-    public List<String> WindowsSpecialFilenames = Arrays.asList(
+    public static List<String> WindowsSpecialFilenames = Arrays.asList(
             "CON",
             "PRN",
             "AUX",
@@ -554,10 +555,10 @@ public class NaughtyStrings {
             "COM3",
             "COM4"
     );
-    public List<String> IRCSpecificStrings = Arrays.asList(
+    public static List<String> IRCSpecificStrings = Arrays.asList(
             "DCC SEND STARTKEYLOGGER 0 0 0"
     );
-    public List<String> ScunthorpeProblem = Arrays.asList(
+    public static List<String> ScunthorpeProblem = Arrays.asList(
             "Scunthorpe General Hospital",
             "Penistone Community Church",
             "Lightwater Country Park",
@@ -581,36 +582,45 @@ public class NaughtyStrings {
             "Dick Van Dyke",
             "basement"
     );
-    public List<String> HumanInjection = Arrays.asList(
+    public static List<String> HumanInjection = Arrays.asList(
             "If you're reading this, you've been in a coma for almost 20 years now. We're trying a new technique. We don't know where this message will end up in your dream, but we hope it works. Please wake up, we miss you."
     );
-    public List<String> TerminalEscapeCodes = Arrays.asList(
+    public static List<String> TerminalEscapeCodes = Arrays.asList(
             "Roses are \u001b[0;31mred\u001b[0m, violets are \u001b[0;34mblue. Hope you enjoy terminal hue",
             "But now...\u001b[20Cfor my greatest trick...\u001b[8m",
             "The quic\b\b\b\b\b\bk brown fo\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007x... [Beeeep]"
     );
-    public List<String> IOSVulnerabilities = Arrays.asList(
+    public static List<String> IOSVulnerabilities = Arrays.asList(
             "Powerلُلُصّبُلُلصّبُررً ॣ ॣh ॣ ॣ冗",
             "🏳0🌈️",
             "జ్ఞ‌ా"
     );
-    public List<String> PersianSpecialCharacters = Arrays.asList(
+    public static List<String> PersianSpecialCharacters = Arrays.asList(
             "گچپژ"
     );
-    public List<String> Jinja2Injection = Arrays.asList(
+    public static List<String> Jinja2Injection = Arrays.asList(
             "{% print 'x' * 64 * 1024**3 %}",
             "{{ \"\".__class__.__mro__[2].__subclasses__()[40](\"/etc/passwd\").read() }}"
     );
 
     public static List<String> AllStrings = join(reservedStrings, specialCharacters);
 
-    public static  <T> List<T> join(List<T>... lists) {
+    public static List<String> getRandomStrings(int size) {
+        Random random = new Random();
+        List<String> randomStrings = new ArrayList<>();
+        int upperBound = AllStrings.size() + 1;
+        for (int i = 0; i < size; ++i) {
+            int randomIndex = random.nextInt(upperBound);
+            randomStrings.add(AllStrings.get(randomIndex));
+        }
+        return randomStrings;
+    }
+
+    public static <T> List<T> join(List<T>... lists) {
         List<T> result = new ArrayList<T>();
         for (List<T> list : lists) {
             result.addAll(list);
         }
         return result;
     }
-
-
 }
