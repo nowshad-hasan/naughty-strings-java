@@ -1,13 +1,12 @@
-package com.nowshad;
-
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class NaughtyStringInternal {
-    protected static final List<String> RESERVED_STRINGS = List.of(
+class NaughtyStringInternal {
+    static final List<String> RESERVED_STRINGS = Arrays.asList(
             "",
             "undefined",
             "undef",
@@ -28,7 +27,7 @@ public class NaughtyStringInternal {
             "\\",
             "\\\\"
     );
-    public static List<String> NUMERIC_STRINGS = List.of(
+    static List<String> NUMERIC_STRINGS = Arrays.asList(
             "0",
             "1",
             "1.00",
@@ -101,7 +100,7 @@ public class NaughtyStringInternal {
             "09",
             "2.2250738585072011e-308"
     );
-    public static List<String> SPECIAL_CHARACTERS = List.of(
+    static List<String> SPECIAL_CHARACTERS = Arrays.asList(
             ",./;'[]\\-=",
             "<>?:\"{}|_+",
             "!@#$%^&*()`~",
@@ -112,7 +111,7 @@ public class NaughtyStringInternal {
             "",
             "￾"
     );
-    public static List<String> UNICODE_SYMBOLS = List.of(
+    static List<String> UNICODE_SYMBOLS = Arrays.asList(
             "Ω≈ç√∫˜µ≤≥÷",
             "åß∂ƒ©˙∆˚¬…æ",
             "œ∑´®†¥¨ˆøπ“‘",
@@ -125,13 +124,13 @@ public class NaughtyStringInternal {
             "ЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюя",
             "٠١٢٣٤٥٦٧٨٩"
     );
-    public static List<String> UNICODE_SUBSCRIPT_SUPERSCRIPT_ACCENTS = List.of(
+    static List<String> UNICODE_SUBSCRIPT_SUPERSCRIPT_ACCENTS = Arrays.asList(
             "⁰⁴⁵",
             "₀₁₂",
             "⁰⁴⁵₀₁₂",
             "ด้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็ ด้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็ ด้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็็้้้้้้้้็็็็็้้้้้็็็็"
     );
-    public static List<String> QUOTATION_MARKS = List.of(
+    static List<String> QUOTATION_MARKS = Arrays.asList(
             "'",
             "\"",
             "''",
@@ -144,7 +143,7 @@ public class NaughtyStringInternal {
             "<foo val=”bar“ />",
             "<foo val=`bar' />"
     );
-    public static List<String> TWO_BYTE_CHARACTERS = List.of(
+    static List<String> TWO_BYTE_CHARACTERS = Arrays.asList(
             "田中さんにあげて下さい",
             "パーティーへ行かないか",
             "和製漢語",
@@ -155,10 +154,10 @@ public class NaughtyStringInternal {
             "울란바토르",
             "𠜎𠜱𠝹𠱓𠱸𠲖𠳏"
     );
-    public static List<String> TWO_BYTE_LETTER = List.of(
+    static List<String> TWO_BYTE_LETTER = Arrays.asList(
             "𐐜 𐐔𐐇𐐝𐐀𐐡𐐇𐐓 𐐙𐐊𐐡𐐝𐐓/𐐝𐐇𐐗𐐊𐐤𐐔 𐐒𐐋𐐗 𐐒𐐌 𐐜 𐐡𐐀𐐖𐐇𐐤𐐓𐐝 𐐱𐑂 𐑄 𐐔𐐇𐐝𐐀𐐡𐐇𐐓 𐐏𐐆𐐅𐐤𐐆𐐚𐐊𐐡𐐝𐐆𐐓𐐆"
     );
-    public static List<String> SPECIAL_UNICODE_CHARACTERS_UNION = List.of(
+    static List<String> SPECIAL_UNICODE_CHARACTERS_UNION = Arrays.asList(
             "表",
             "ポ",
             "あ",
@@ -177,11 +176,11 @@ public class NaughtyStringInternal {
             "㐀",
             "𠀀"
     );
-    public static List<String> CHANGING_LENGTH_WHEN_LOWERCASE = List.of(
+    static List<String> CHANGING_LENGTH_WHEN_LOWERCASE = Arrays.asList(
             "Ⱥ",
             "Ⱦ"
     );
-    public static List<String> JAPANESE_EMOTICONS = List.of(
+    static List<String> JAPANESE_EMOTICONS = Arrays.asList(
             "ヽ༼ຈل͜ຈ༽ﾉ ヽ༼ຈل͜ຈ༽ﾉ",
             "(｡◕ ∀ ◕｡)",
             "｀ｨ(´∀｀∩",
@@ -195,7 +194,7 @@ public class NaughtyStringInternal {
             "( ͡° ͜ʖ ͡°)",
             "¯\\_(ツ)_/¯"
     );
-    public static List<String> EMOJI = List.of(
+    static List<String> EMOJI = Arrays.asList(
             "😍",
             "👩🏽",
             "👨‍🦰 👨🏿‍🦰 👨‍🦱 👨🏿‍🦱 🦹🏿‍♂️",
@@ -207,17 +206,17 @@ public class NaughtyStringInternal {
             "🚾 🆒 🆓 🆕 🆖 🆗 🆙 🏧",
             "0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟"
     );
-    public static List<String> REGIONAL_INDICATOR_SYMBOLS = List.of(
+    static List<String> REGIONAL_INDICATOR_SYMBOLS = Arrays.asList(
             // todo check
             "🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸",
             "🇺🇸🇷🇺🇸🇦🇫🇦🇲",
             "🇺🇸🇷🇺🇸🇦"
     );
-    public static List<String> UNICODE_NUMBERS = List.of(
+    static List<String> UNICODE_NUMBERS = Arrays.asList(
             "１２３",
             "١٢٣"
     );
-    public static List<String> RIGHT_TO_LEFT_STRINGS = List.of(
+    static List<String> RIGHT_TO_LEFT_STRINGS = Arrays.asList(
             "ثم نفس سقطت وبالتحديد،, جزيرتي باستخدام أن دنو. إذ هنا؟ الستار وتنصيب كان. أهّل ايطاليا، بريطانيا-فرنسا قد أخذ. سليمان، إتفاقية بين ما, يذكر الحدود أي بعد, معاملة بولندا، الإطلاق عل إيو.",
             "בְּרֵאשִׁית, בָּרָא אֱלֹהִים, אֵת הַשָּׁמַיִם, וְאֵת הָאָרֶץ",
             "הָיְתָהtestالصفحات التّحول",
@@ -225,18 +224,18 @@ public class NaughtyStringInternal {
             "ﷺ",
             "مُنَاقَشَةُ سُبُلِ اِسْتِخْدَامِ اللُّغَةِ فِي النُّظُمِ الْقَائِمَةِ وَفِيم يَخُصَّ التَّطْبِيقَاتُ الْحاسُوبِيَّةُ، "
     );
-    public static List<String> OghamText = List.of(
+    static List<String> OghamText = Arrays.asList(
             "Ṱ̺̺̕o͞ ̷i̲̬͇̪͙n̝̗͕v̟̜̘̦͟o̶̙̰̠kè͚̮̺̪̹̱̤ ̖t̝͕̳̣̻̪͞h̼͓̲̦̳̘̲e͇̣̰̦̬͎ ̢̼̻̱̘h͚͎͙̜̣̲ͅi̦̲̣̰̤v̻͍e̺̭̳̪̰-m̢iͅn̖̺̞̲̯̰d̵̼̟͙̩̼̘̳ ̞̥̱̳̭r̛̗̘e͙p͠r̼̞̻̭̗e̺̠̣͟s̘͇̳͍̝͉e͉̥̯̞̲͚̬͜ǹ̬͎͎̟̖͇̤t͍̬̤͓̼̭͘ͅi̪̱n͠g̴͉ ͏͉ͅc̬̟h͡a̫̻̯͘o̫̟̖͍̙̝͉s̗̦̲.̨̹͈̣",
             "̡͓̞ͅI̗̘̦͝n͇͇͙v̮̫ok̲̫̙͈i̖͙̭̹̠̞n̡̻̮̣̺g̲͈͙̭͙̬͎ ̰t͔̦h̞̲e̢̤ ͍̬̲͖f̴̘͕̣è͖ẹ̥̩l͖͔͚i͓͚̦͠n͖͍̗͓̳̮g͍ ̨o͚̪͡f̘̣̬ ̖̘͖̟͙̮c҉͔̫͖͓͇͖ͅh̵̤̣͚͔á̗̼͕ͅo̼̣̥s̱͈̺̖̦̻͢.̛̖̞̠̫̰",
             "̗̺͖̹̯͓Ṯ̤͍̥͇͈h̲́e͏͓̼̗̙̼̣͔ ͇̜̱̠͓͍ͅN͕͠e̗̱z̘̝̜̺͙p̤̺̹͍̯͚e̠̻̠͜r̨̤͍̺̖͔̖̖d̠̟̭̬̝͟i̦͖̩͓͔̤a̠̗̬͉̙n͚͜ ̻̞̰͚ͅh̵͉i̳̞v̢͇ḙ͎͟-҉̭̩̼͔m̤̭̫i͕͇̝̦n̗͙ḍ̟ ̯̲͕͞ǫ̟̯̰̲͙̻̝f ̪̰̰̗̖̭̘͘c̦͍̲̞͍̩̙ḥ͚a̮͎̟̙͜ơ̩̹͎s̤.̝̝ ҉Z̡̖̜͖̰̣͉̜a͖̰͙̬͡l̲̫̳͍̩g̡̟̼̱͚̞̬ͅo̗͜.̟",
             "̦H̬̤̗̤͝e͜ ̜̥̝̻͍̟́w̕h̖̯͓o̝͙̖͎̱̮ ҉̺̙̞̟͈W̷̼̭a̺̪͍į͈͕̭͙̯̜t̶̼̮s̘͙͖̕ ̠̫̠B̻͍͙͉̳ͅe̵h̵̬͇̫͙i̹͓̳̳̮͎̫̕n͟d̴̪̜̖ ̰͉̩͇͙̲͞ͅT͖̼͓̪͢h͏͓̮̻e̬̝̟ͅ ̤̹̝W͙̞̝͔͇͝ͅa͏͓͔̹̼̣l̴͔̰̤̟͔ḽ̫.͕",
             "Z̮̞̠͙͔ͅḀ̗̞͈̻̗Ḷ͙͎̯̹̞͓G̻O̭̗̮"
     );
-    public static List<String> UNICODE_UPSIDE_DOWN = List.of(
+    static List<String> UNICODE_UPSIDE_DOWN = Arrays.asList(
             "˙ɐnbᴉlɐ ɐuƃɐɯ ǝɹolop ʇǝ ǝɹoqɐl ʇn ʇunpᴉpᴉɔuᴉ ɹodɯǝʇ poɯsnᴉǝ op pǝs 'ʇᴉlǝ ƃuᴉɔsᴉdᴉpɐ ɹnʇǝʇɔǝsuoɔ 'ʇǝɯɐ ʇᴉs ɹolop ɯnsdᴉ ɯǝɹo˥",
             "00˙Ɩ$-"
     );
-    public static List<String> UNICODE_FONT = List.of(
+    static List<String> UNICODE_FONT = Arrays.asList(
             "Ｔｈｅ ｑｕｉｃｋ ｂｒｏｗｎ ｆｏｘ ｊｕｍｐｓ ｏｖｅｒ ｔｈｅ ｌａｚｙ ｄｏｇ",
             "𝐓𝐡𝐞 𝐪𝐮𝐢𝐜𝐤 𝐛𝐫𝐨𝐰𝐧 𝐟𝐨𝐱 𝐣𝐮𝐦𝐩𝐬 𝐨𝐯𝐞𝐫 𝐭𝐡𝐞 𝐥𝐚𝐳𝐲 𝐝𝐨𝐠",
             "𝕿𝖍𝖊 𝖖𝖚𝖎𝖈𝖐 𝖇𝖗𝖔𝖜𝖓 𝖋𝖔𝖝 𝖏𝖚𝖒𝖕𝖘 𝖔𝖛𝖊𝖗 𝖙𝖍𝖊 𝖑𝖆𝖟𝖞 𝖉𝖔𝖌",
@@ -246,7 +245,7 @@ public class NaughtyStringInternal {
             "𝚃𝚑𝚎 𝚚𝚞𝚒𝚌𝚔 𝚋𝚛𝚘𝚠𝚗 𝚏𝚘𝚡 𝚓𝚞𝚖𝚙𝚜 𝚘𝚟𝚎𝚛 𝚝𝚑𝚎 𝚕𝚊𝚣𝚢 𝚍𝚘𝚐",
             "⒯⒣⒠ ⒬⒰⒤⒞⒦ ⒝⒭⒪⒲⒩ ⒡⒪⒳ ⒥⒰⒨⒫⒮ ⒪⒱⒠⒭ ⒯⒣⒠ ⒧⒜⒵⒴ ⒟⒪⒢"
     );
-    public static List<String> SCRIPT_INJECTION = List.of(
+    static List<String> SCRIPT_INJECTION = Arrays.asList(
             "<script>alert(123)</script>",
             "&lt;script&gt;alert(&#39;123&#39;);&lt;/script&gt;",
             "<img src=x onerror=alert(123) />",
@@ -484,7 +483,7 @@ public class NaughtyStringInternal {
             "http://a/%%30%30",
             "</textarea><script>alert(123)</script>"
     );
-    public static List<String> SQL_INJECTION = List.of(
+    static List<String> SQL_INJECTION = Arrays.asList(
             "1;DROP TABLE users",
             "1'; DROP TABLE users-- 1",
             "' OR 1=1 -- 1",
@@ -494,7 +493,7 @@ public class NaughtyStringInternal {
             "%",
             "_"
     );
-    public static List<String> SERVER_CODE_INJECTION = List.of(
+    static List<String> SERVER_CODE_INJECTION = Arrays.asList(
             "-",
             "--",
             "--version",
@@ -505,7 +504,7 @@ public class NaughtyStringInternal {
             "$(touch /tmp/blns.fail)",
             "@{[system \"touch /tmp/blns.fail\"]}"
     );
-    public static List<String> COMMAND_INJECTION = List.of(
+    static List<String> COMMAND_INJECTION = Arrays.asList(
             "eval(\"puts 'hello world'\")",
             "System(\"ls -al /\")",
             "`ls -al /`",
@@ -513,10 +512,10 @@ public class NaughtyStringInternal {
             "Kernel.exit(1)",
             "%x('ls -al /')"
     );
-    public static List<String> XXE_INJECTION = List.of(
+    static List<String> XXE_INJECTION = Arrays.asList(
             "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><!DOCTYPE foo [ <!ELEMENT foo ANY ><!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]><foo>&xxe;</foo>"
     );
-    public static List<String> UNWANTED_INTERPOLATION = List.of(
+    static List<String> UNWANTED_INTERPOLATION = Arrays.asList(
             "$HOME",
             "$ENV{'HOME'}",
             "%d",
@@ -527,17 +526,17 @@ public class NaughtyStringInternal {
             "%n",
             "File:///"
     );
-    public static List<String> FILE_INCLUSION = List.of(
+    static List<String> FILE_INCLUSION = Arrays.asList(
             "../../../../../../../../../../../etc/passwd%00",
             "../../../../../../../../../../../etc/hosts"
     );
-    public static List<String> CVES_AND_VULNERABILITIES = List.of(
+    static List<String> CVES_AND_VULNERABILITIES = Arrays.asList(
             "() { 0; }; touch /tmp/blns.shellshock1.fail;",
             "() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }",
             "<<< %s(un='%s') = %u",
             "+++ATH0"
     );
-    public static List<String> WINDOWS_SPECIAL_FILENAMES = List.of(
+    static List<String> WINDOWS_SPECIAL_FILENAMES = Arrays.asList(
             "CON",
             "PRN",
             "AUX",
@@ -553,10 +552,10 @@ public class NaughtyStringInternal {
             "COM3",
             "COM4"
     );
-    public static List<String> IRC_SPECIFIC_STRINGS = List.of(
+    static List<String> IRC_SPECIFIC_STRINGS = Arrays.asList(
             "DCC SEND STARTKEYLOGGER 0 0 0"
     );
-    public static List<String> SCUNTHORPE_PROBLEM = List.of(
+    static List<String> SCUNTHORPE_PROBLEM = Arrays.asList(
             "Scunthorpe General Hospital",
             "Penistone Community Church",
             "Lightwater Country Park",
@@ -580,64 +579,55 @@ public class NaughtyStringInternal {
             "Dick Van Dyke",
             "basement"
     );
-    public static List<String> HUMAN_INJECTION = List.of(
+    static List<String> HUMAN_INJECTION = Arrays.asList(
             "If you're reading this, you've been in a coma for almost 20 years now. We're trying a new technique. We don't know where this message will end up in your dream, but we hope it works. Please wake up, we miss you."
     );
-    public static List<String> TERMINAL_ESCAPE_CODES = List.of(
+    static List<String> TERMINAL_ESCAPE_CODES = Arrays.asList(
             "Roses are \u001b[0;31mred\u001b[0m, violets are \u001b[0;34mblue. Hope you enjoy terminal hue",
             "But now...\u001b[20Cfor my greatest trick...\u001b[8m",
             "The quic\b\b\b\b\b\bk brown fo\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007\u0007x... [Beeeep]"
     );
-    public static List<String> IOS_VULNERABILITIES = List.of(
+    static List<String> IOS_VULNERABILITIES = Arrays.asList(
             "Powerلُلُصّبُلُلصّبُررً ॣ ॣh ॣ ॣ冗",
             "🏳0🌈️",
             "జ్ఞ‌ా"
     );
-    public static List<String> PERSIAN_SPECIAL_CHARACTERS = List.of(
+    static List<String> PERSIAN_SPECIAL_CHARACTERS = Arrays.asList(
             "گچپژ"
     );
-    public static List<String> JINJA_2_INJECTION = List.of(
+    static List<String> JINJA_2_INJECTION = Arrays.asList(
             "{% print 'x' * 64 * 1024**3 %}",
             "{{ \"\".__class__.__mro__[2].__subclasses__()[40](\"/etc/passwd\").read() }}"
     );
 
     // todo add all the types of strings
 
-    private static List<String> ALL_STRING = Stream.of(NaughtyStringType.values())
+    static List<String> ALL_STRING = Stream.of(NaughtyStringType.values())
             .map(NaughtyStringType::getString)
             .flatMap(Collection::stream)
             .collect(Collectors.toList());
-    public static List<String> getRandomStrings(int size) {
 
-
+    static List<String> getRandomStrings(int size) {
+        if (size < 0) {
+            throw new IllegalArgumentException("Size cannot be negative");
+        }
         return new Random().ints(0, ALL_STRING.size())
                 .mapToObj(ALL_STRING::get)
                 .limit(size)
-                .toList();
+                .collect(Collectors.toList());
     }
 
-
-    //you don't need join method anymore.
-//
-//    @SafeVarargs
-//    public static <T> List<T> join(List<T>... lists) {
-//        if (lists == null) return List.of(); // new ArrayList<>();
-//
-//        return Stream.of(lists)
-//                .flatMap(Collection::stream).toList();
-//    }
-
-    public static List<String> getRandomStrings(int size, NaughtyStringType type) {
+    static List<String> getRandomStrings(int size, NaughtyStringType type) {
         if (size < 0) {
             throw new IllegalArgumentException("Size cannot be negative");
         }
         return new Random().ints(0, type.getString().size())
                 .mapToObj(index -> type.getString().get(index))
                 .limit(size)
-                .toList();
+                .collect(Collectors.toList());
     }
 
-    public static List<String> getString(NaughtyStringType type){
+    static List<String> getStrings(NaughtyStringType type) {
         return type.getString();
     }
 }
