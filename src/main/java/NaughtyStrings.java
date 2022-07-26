@@ -18,4 +18,8 @@ public class NaughtyStrings {
     public static List<String> getListByType(NaughtyStringType type) {
         return NaughtyStringInternal.getStrings(type);
     }
+
+    public static List<String> getAll() {
+        return NaughtyStringInternal.ALL_STRING;
+    }
 }

@@ -23,4 +23,19 @@ class NaughtyStringInternalTest {
     void testGetRandomStrings_whenNegativeSize_shouldThrowError() {
         assertThrows(IllegalArgumentException.class, () -> NaughtyStringInternal.getRandomStrings(-1));
     }
+
+    //todo fail for single test run
+    //pass when full class test runs
+    @Test
+    void testGetStrings_whenReservedType_shouldReturnReservedItems() {
+        List<String> actualList = NaughtyStringInternal.getStrings(NaughtyStringType.RESERVED_STRINGS);
+        List<String> expectedList = NaughtyStringType.RESERVED_STRINGS.getString();
+        assertIterableEquals(expectedList, actualList);
+    }
+
+    @Test
+    void testGetStrings_whenReservedType_shouldReturnListOfStrings(){
+        List<String> reservedList = NaughtyStringInternal.getStrings(NaughtyStringType.RESERVED_STRINGS);
+        assertTrue(reservedList.size()>0);
+    }
 }
