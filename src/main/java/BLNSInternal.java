@@ -1,11 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-class NaughtyStringInternal {
+class BLNSInternal {
     static final List<String> RESERVED_STRINGS = Arrays.asList(
             "",
             "undefined",
@@ -600,34 +599,42 @@ class NaughtyStringInternal {
             "{{ \"\".__class__.__mro__[2].__subclasses__()[40](\"/etc/passwd\").read() }}"
     );
 
-    // todo add all the types of strings
+    static List<String> ALL = getAllStringList();
 
-    static List<String> ALL_STRING = Stream.of(NaughtyStringType.values())
-            .map(NaughtyStringType::getString)
-            .flatMap(Collection::stream)
-            .collect(Collectors.toList());
-
-    static List<String> getRandomStrings(int size) {
-        if (size < 0) {
+    static List<String> getRandomStrings(int size, NaughtyStrings type) {
+        if (size < 0)
             throw new IllegalArgumentException("Size cannot be negative");
-        }
-        return new Random().ints(0, ALL_STRING.size())
-                .mapToObj(ALL_STRING::get)
-                .limit(size)
-                .collect(Collectors.toList());
-    }
 
-    static List<String> getRandomStrings(int size, NaughtyStringType type) {
-        if (size < 0) {
-            throw new IllegalArgumentException("Size cannot be negative");
-        }
+        if (type == null)
+            throw new IllegalArgumentException("Invalid Naughty Strings Type");
+
         return new Random().ints(0, type.getString().size())
                 .mapToObj(index -> type.getString().get(index))
                 .limit(size)
                 .collect(Collectors.toList());
     }
 
-    static List<String> getStrings(NaughtyStringType type) {
+    static List<String> getStrings(NaughtyStrings type) {
+        if (type == null)
+            throw new IllegalArgumentException("Invalid Naughty Strings Type");
         return type.getString();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> List<T> join(List<T>... lists) {
+        List<T> result = new ArrayList<T>();
+        for (List<T> list : lists) {
+            result.addAll(list);
+        }
+        return result;
+    }
+
+    public static List<String> getAllStringList() {
+        return join(RESERVED_STRINGS, NUMERIC_STRINGS, SPECIAL_CHARACTERS,
+                UNICODE_SYMBOLS, UNICODE_SUBSCRIPT_SUPERSCRIPT_ACCENTS, QUOTATION_MARKS, TWO_BYTE_CHARACTERS, TWO_BYTE_LETTER, SPECIAL_UNICODE_CHARACTERS_UNION,
+                CHANGING_LENGTH_WHEN_LOWERCASE, JAPANESE_EMOTICONS, EMOJI, REGIONAL_INDICATOR_SYMBOLS, UNICODE_NUMBERS, RIGHT_TO_LEFT_STRINGS, OGHAM_TEXT,
+                UNICODE_UPSIDE_DOWN, UNICODE_FONT, SCRIPT_INJECTION, SQL_INJECTION, SERVER_CODE_INJECTION, COMMAND_INJECTION, XXE_INJECTION, UNWANTED_INTERPOLATION,
+                FILE_INCLUSION, CVES_AND_VULNERABILITIES, WINDOWS_SPECIAL_FILENAMES, IRC_SPECIFIC_STRINGS, SCUNTHORPE_PROBLEM, HUMAN_INJECTION, TERMINAL_ESCAPE_CODES,
+                IOS_VULNERABILITIES, PERSIAN_SPECIAL_CHARACTERS, JINJA_2_INJECTION);
     }
 }
