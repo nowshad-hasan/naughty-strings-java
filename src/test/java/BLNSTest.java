@@ -44,4 +44,18 @@ public class BLNSTest {
         List<String> expectedList = BLNS.getList(NaughtyStrings.RESERVED_STRINGS);
         assertIterableEquals(actualList, expectedList);
     }
+
+    @Test
+    void testGetList_whenRegionalIndicatorSymbols_shouldReturnRegionalIndicatorSymbols() {
+        List<String> actualList = BLNSInternal.getStrings(NaughtyStrings.REGIONAL_INDICATOR_SYMBOLS);
+        List<String> expectedList = BLNS.getList(NaughtyStrings.REGIONAL_INDICATOR_SYMBOLS);
+        assertIterableEquals(actualList, expectedList);
+    }
+
+    @Test
+    void testGetList_whenJapaneseEmoticons_shouldReturnJapaneseEmoticons() {
+        List<String> actualList = BLNSInternal.getStrings(NaughtyStrings.JAPANESE_EMOTICONS);
+        List<String> expectedList = BLNS.getList(NaughtyStrings.JAPANESE_EMOTICONS);
+        assertIterableEquals(actualList, expectedList);
+    }
 }

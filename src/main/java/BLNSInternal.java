@@ -188,7 +188,7 @@ class BLNSInternal {
             "ﾟ･✿ヾ╲(｡◕‿◕｡)╱✿･ﾟ",
             ",。・:*:・゜’( ☻ ω ☻ )。・:*:・゜’",
             "(╯°□°）╯︵ ┻━┻)",
-            "(ﾉಥ益ಥ） ┻━┻",   //todo check
+            "(ﾉಥ益ಥ） ┻━┻",
             "┬─┬ノ( º _ ºノ)",
             "( ͡° ͜ʖ ͡°)",
             "¯\\_(ツ)_/¯"
@@ -206,7 +206,6 @@ class BLNSInternal {
             "0️⃣ 1️⃣ 2️⃣ 3️⃣ 4️⃣ 5️⃣ 6️⃣ 7️⃣ 8️⃣ 9️⃣ 🔟"
     );
     static List<String> REGIONAL_INDICATOR_SYMBOLS = Arrays.asList(
-            // todo check
             "🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸",
             "🇺🇸🇷🇺🇸🇦🇫🇦🇲",
             "🇺🇸🇷🇺🇸🇦"
