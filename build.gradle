@@ -1,12 +1,89 @@
 plugins {
     id 'java'
+    id 'maven-publish'
+    id 'signing'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+/*
+sourceSets {
+    build {
+        java.srcDir file('src')
+    }
+}
+*/
+
+group 'io.github.nowshad-hasan'
+version '1.0.0'
 
 repositories {
     mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+
+        mavenJava(MavenPublication) {
+
+            groupId = 'io.github.nowshad-hasan'
+            artifactId = 'naughty-strings-java'
+            version = '1.0.0'
+            from components.java
+
+            pom {
+                name = 'Naughty Strings Java'
+                description = 'Naughty Strings Java is an API for testing different types of user input for strings.' +
+                        ' It contains emoji, icon, sql injection and others type of data.'
+                url = 'https://github.com/nowshad-hasan/naughty-strings-java'
+                inceptionYear = '2022'
+
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'nowshad-hasan'
+                        name = 'Nowshad Hasan'
+                        email = 'nowshadapu@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git:github.com/nowshad-hasan/naughty-strings-java.git'
+                    developerConnection = 'scm:git:ssh://github.com/nowshad-hasan/naughty-strings-java.git'
+                    url = 'https://github.com/nowshad-hasan/naughty-strings-java'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "OSSRH"
+            url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            credentials {
+                username = project.properties["username"]
+                password = project.properties["password"]
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
 }
 
 dependencies {
