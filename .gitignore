@@ -30,3 +30,6 @@ naughty-strings-java.iml
 
 # Ignore Gradle build output directory
 build
+
+# Ignore the credentials container file
+gradle.properties
