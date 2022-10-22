@@ -28,7 +28,7 @@ Maven: <br>
     <version>1.0.1</version>
 </dependency>
 ````
-Please go to [Maven Repository](https://mvnrepository.com/artifact/io.github.nowshad-hasan/naughty-strings-java) for other build tools.
+Please go to [Maven Repository](https://mvnrepository.com/artifact/io.github.nowshad-hasan/naughty-strings-java) for other dependencies.
 ## Usage
 We can use it in two ways. 
 
