@@ -3,17 +3,8 @@ plugins {
     id 'maven-publish'
     id 'signing'
 }
-
-/*
-sourceSets {
-    build {
-        java.srcDir file('src')
-    }
-}
-*/
-
 group 'io.github.nowshad-hasan'
-version '1.0.0'
+version '1.0.1'
 
 repositories {
     mavenCentral()
@@ -32,7 +23,7 @@ publishing {
 
             groupId = 'io.github.nowshad-hasan'
             artifactId = 'naughty-strings-java'
-            version = '1.0.0'
+            version = '1.0.1'
             from components.java
 
             pom {

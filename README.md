@@ -1,6 +1,7 @@
 # Naughty-Strings Java
-Java API for the [Big List of Naughty Strings](https://github.com/minimaxir/big-list-of-naughty-strings)
+Java API for the [Big List of Naughty Strings](https://github.com/minimaxir/big-list-of-naughty-strings).
 
+[CHANGELOG](https://github.com/nowshad-hasan/naughty-strings-java/blob/main/CHANGELOG.md) is here.
 ## Description
 Sometimes we need to test our user input with different types of strings. It might be character, icon, emoji, SQL injection etc. This library is built to validate the user input with those **_totally uncertain_** strings. We call it **Naughty Strings**.
 Some example below:<br>
@@ -17,16 +18,17 @@ Some example below:<br>
 ## Installation
 Gradle: <br>
 ```
-implementation 'io.github.nowshad-hasan:naughty-strings-java:1.0.0'
+implementation 'io.github.nowshad-hasan:naughty-strings-java:1.0.1'
 ```
 Maven: <br>
 ````
 <dependency>
     <groupId>io.github.nowshad-hasan</groupId>
     <artifactId>naughty-strings-java</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ````
+Please go to [Maven Repository](https://mvnrepository.com/artifact/io.github.nowshad-hasan/naughty-strings-java) for other build tools.
 ## Usage
 We can use it in two ways. 
 
