@@ -1,3 +1,5 @@
+package io.github.nowshad;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

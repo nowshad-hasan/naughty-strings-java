@@ -1,3 +1,5 @@
+package io.github.nowshad;
+
 import java.util.List;
 
 public enum NaughtyStrings {
